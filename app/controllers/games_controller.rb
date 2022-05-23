@@ -1,6 +1,3 @@
-require 'open-uri'
-require 'json'
-
 class GamesController < ApplicationController
 
   def new
@@ -29,7 +26,7 @@ class GamesController < ApplicationController
         @letters_new = params[:letters]
     if result["found"] && letters_in_grid?(@word, @letters_new.split())
       # hash[:time] = (end_time - start_time)
-      @hash[:score] = (@word.size)
+      @hash[:score] = (@word.size * @word.size)
       @hash[:message] = "Well done!"
       @test = "correct word"
     else
